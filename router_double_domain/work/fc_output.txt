@@ -1,0 +1,33 @@
+ 
+                              Fusion Compiler (TM)
+
+                Version V-2023.12-SP4 for linux64 - Jun 03, 2024
+                           Base build date 2024/05/13
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Loading user preference file /home1/PD09/RanjithKC/.synopsys_fc_gui/preferences.tcl
+Loading user favorites file /home1/PD09/RanjithKC/.synopsys_fc_gui/favorites.tcl
+Error: Current library is not defined. (LIB-001)
+Error: No technology information. (TECH-004)
+fc_shell> quit
+Maximum memory usage for this session: 487.66 MB
+Maximum memory usage for this session including child processes: 487.66 MB
+CPU usage for this session:     17 seconds (  0.00 hours)
+Elapsed time for this session:    497 seconds (  0.14 hours)
+Thank you for using Fusion Compiler.
+

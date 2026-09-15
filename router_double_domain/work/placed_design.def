@@ -1,0 +1,12 @@
+# 
+# Fusion Compiler write_def
+# Release      : V-2023.12-SP4
+# User Name    : RanjithKC
+# Date         : Tue Aug 12 16:51:55 2025
+# 
+VERSION 5.7 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN router_top ;
+UNITS DISTANCE MICRONS 1000 ;
+END DESIGN
