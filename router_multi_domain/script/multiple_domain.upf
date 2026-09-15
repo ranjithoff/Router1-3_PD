@@ -1,0 +1,48 @@
+reset_upf
+
+create_supply_net VSS
+create_supply_net VDDT
+create_supply_net VDDH
+create_supply_net VDDL
+
+
+create_supply_set ss_top -function {power VDDT} -function {ground VSS}
+create_supply_set ss_high -function {power VDDH} -function {ground VSS}
+create_supply_set ss_low -function {power VDDL} -function {ground VSS}
+
+
+create_power_domain router_top -supply {primary ss_top}
+create_power_domain fsm -elements FSM  -supply {primary ss_high}
+create_power_domain synch -elements SYNCH  -supply {primary ss_low}
+
+
+create_supply_port VDDT -domain router_top -direction in
+create_supply_port VSS -domain router_top -direction in
+create_supply_port VDDH -domain fsm -direction in
+create_supply_port VDDL -domain synch -direction in
+
+
+connect_supply_net VDDT -ports VDDT
+connect_supply_net VSS -ports VSS
+connect_supply_net VDDH -ports VDDH
+connect_supply_net VDDL -ports VDDL
+
+
+set_level_shifter fsm_ls_out -domain fsm -applies_to outputs -rule low_to_high -location parent
+set_level_shifter fsm_ls_in -domain fsm -applies_to inputs -rule high_to_low -location self
+
+set_level_shifter synch_ls_out -domain synch -applies_to outputs -rule low_to_high -location parent
+set_level_shifter synch_ls_in -domain synch -applies_to inputs -rule high_to_low -location self
+
+
+add_power_state -supply ss_top -state ON  {-supply_expr { power == {FULL_ON 1.16 } && ground == {FULL_ON 0.0} }}
+create_power_state_group PST_T
+add_power_state -group PST_T -state RUN {-logic_expr {ss_top==ON}} 
+
+add_power_state -supply ss_high -state ON  {-supply_expr {power == {FULL_ON 0.95 } && ground == {FULL_ON 0.0}}}
+create_power_state_group PST_H
+add_power_state -group PST_H -state RUN {-logic_expr {ss_high==ON}} 
+
+add_power_state -supply ss_low -state ON  {-supply_expr {power == {FULL_ON 0.75 } && ground == {FULL_ON 0.0}}}
+create_power_state_group PST_L
+add_power_state -group PST_L -state RUN {-logic_expr {ss_low==ON}} 
