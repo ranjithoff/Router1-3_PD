@@ -1,0 +1,11 @@
+create_supply_net VDD
+create_supply_net VSS
+
+create_supply_set ss_main -function {power VDD} -function {ground VSS}
+create_power_domain PD_TOP  -supply {primary ss_main}
+
+create_supply_port VDD -domain PD_TOP -direction in
+create_supply_port VSS -domain PD_TOP -direction in
+
+connect_supply_net VDD -ports VDD
+connect_supply_net VSS -ports VSS
